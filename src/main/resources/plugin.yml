@@ -1,0 +1,20 @@
+name: DimensionLock
+version: '${project.version}'
+main: tech.webknox.dimensionlock.DimensionLock
+api-version: '1.20'
+
+commands:
+  end:
+    description: Controls access to the end dimension
+    usage: /end
+    permission: dimensionlock.end
+
+  nether:
+    description: Controls access to the Nether
+    usage: /nether
+    permission: dimensionlock.nether
+
+  dimensionlock:
+    description: Controls access to the Nether
+    usage: /dimensionlock <allowop|denyop|reload>
+    permission: dimensionlock.dimensionlock

@@ -1,0 +1,8 @@
+nether-enabled: false
+end-enabled: false
+ender-eye-spoof: true
+spoof-location:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+allow-op: true
