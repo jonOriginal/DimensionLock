@@ -6,12 +6,12 @@ api-version: '1.20'
 commands:
   end:
     description: Controls access to the end dimension
-    usage: /end
+    usage: /end <lock|unlock|spoofon|spoofoff|setspoof>
     permission: dimensionlock.end
 
   nether:
     description: Controls access to the Nether
-    usage: /nether
+    usage: /nether  <lock|unlock>
     permission: dimensionlock.nether
 
   dimensionlock:

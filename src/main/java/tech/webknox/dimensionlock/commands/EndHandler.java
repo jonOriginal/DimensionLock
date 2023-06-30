@@ -48,6 +48,21 @@ public class EndHandler implements CommandExecutor, Listener, TabCompleter {
                                     ChatColor.RED + "disabled"
                     )
             );
+            commandSender.sendMessage(MessageFormat.format(
+                    "Eye spoofing is currently {0}",
+                    configManager.isEyeSpoofEnabled() ?
+                            ChatColor.GREEN + "enabled" :
+                            ChatColor.RED + "disabled"
+                    )
+            );
+            commandSender.sendMessage(MessageFormat.format(
+                    "Spoof location is currently at x:{0} y:{1} z:{2}",
+                    configManager.getSpoofLocation().getX(),
+                    configManager.getSpoofLocation().getY(),
+                    configManager.getSpoofLocation().getZ()
+                    )
+            );
+
             return true;
         }
 
@@ -122,7 +137,7 @@ public class EndHandler implements CommandExecutor, Listener, TabCompleter {
             return;
         }
 
-        if (!configManager.isEndEnabled()) {
+        if (configManager.isEndEnabled()) {
             return;
         }
 

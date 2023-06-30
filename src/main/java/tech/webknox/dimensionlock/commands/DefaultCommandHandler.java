@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tech.webknox.dimensionlock.Util.ConfigInterface;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 public class DefaultCommandHandler implements CommandExecutor, TabCompleter {
@@ -30,17 +31,23 @@ public class DefaultCommandHandler implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
-            sender.sendMessage("DimensionLock is running");
+            sender.sendMessage(MessageFormat.format(
+                    "Operator Bypass is currently {0}",
+                    configManager.isOpBypassEnabled() ?
+                            ChatColor.GREEN + "enabled" :
+                            ChatColor.RED + "disabled"
+            ));
+            return true;
         }
 
         switch (args[0]) {
             case "allowop" -> {
-                sender.sendMessage(ChatColor.GREEN + "Op bypass is now enabled");
+                sender.sendMessage(ChatColor.GREEN + "Operator bypass is now enabled");
                 configManager.setOpBypassEnabled(true);
                 return true;
             }
             case "disallowop" -> {
-                sender.sendMessage(ChatColor.RED + "Op bypass is now disabled");
+                sender.sendMessage(ChatColor.RED + "Operator bypass is now disabled");
                 configManager.setOpBypassEnabled(false);
                 return true;
             }
